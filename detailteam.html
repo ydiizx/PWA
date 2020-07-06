@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FootBall Info</title>
+  <meta name="description" content="Football info">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#546E7A">
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link rel="manifest" href="/manifest.json">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="blue-grey darken-1" role="navigation">
+      <div class="nav-wrapper container">
+        <a href="#" class="brand-logo" id="logo-container">Football Info</a>
+        <a href="#" id="back" class="sidenav-trigger" data-target="nav-mobile">
+          <i class="material-icons" id="back">arrow_back</i>
+        </a>
+
+        <ul class="topnav right hide-on-med-and-down"></ul>
+        <ul class="sidenav" id="nav-mobile"></ul>
+      </div>
+  </nav>
+
+  <main>
+      <div class="container" id="body-content"></div>
+      <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red" id="save">
+          <i class="material-icons" id="icon"></i>
+        </a>
+      </div>
+  </main>
+  
+  <script src="js/materialize.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/idb.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/getdata.js"></script>
+  <script src="js/detail.js"></script>
+  <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function() {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then(function() {
+              console.log("ServiceWorker: Working")
+            })
+            .catch(function () {
+              console.error("ServiceWorker: Fail")
+            })
+        })
+      } else {
+        console.error("ServiceWorker Not Supported in This Browser")
+      }
+  </script>
+</body>
+</html>
